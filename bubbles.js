@@ -146,6 +146,7 @@ function initEventListeners() {
     window.addEventListener( 'touchmove', function() {
         window.preventDefault();
         onTouchMove(canvas);
+        alert('Here!');
     })
  
     canvas.ontouchmove = function (e) {
