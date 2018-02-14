@@ -16,12 +16,18 @@
     /*background-color: blue;*/
 }
 
+#mybutton {
+	position: absolute;
+    width: 100vw;
+    height: 5vh;
+    bottom: 5vh;
+}
 
 .heart{
     position: absolute;
     width: 100px;
     height: 90px;
-    right: 10vw;
+    right: 50vw;
 }
 .heart:before,
 .heart:after{
