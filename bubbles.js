@@ -55,7 +55,7 @@ function PointCollection() {
             if (point === null)
                 continue;
  
-            if (window.reset || reset) {
+            if (window.reset) {
                 this.pointCollectionX = 0;
                 this.pointCollectionY = 0;
                 this.mousePos = new Vector(0, 0);
@@ -168,15 +168,20 @@ function updateCanvasDimensions() {
     canvasWidth = $( window ).width();
     canvasHeight = $( window ).height()/2;
 
-    draw(true);
+    draw(false);
     console.log('Dimension update');
 }
  
 function onMove(e) {
-    if (pointCollection) {
-        pointCollection.mousePos.set(e.pageX - canvas.offset().left, e.pageY - canvas.offset().top);
+    for (i in pointCollections) {
+        canvas = $("#" + canvas_names[i]);
+        pointCollection = pointCollections[i];
+
+        if (pointCollection) {
+            pointCollection.mousePos.set(e.pageX - canvas.offset().left, e.pageY - canvas.offset().top);
+        }
     }
-    console.log('Mouse is moving');
+        console.log('Mouse is moving');
 }
  
 function onTouchMove(e) {
@@ -200,19 +205,23 @@ function bounceBubbles() {
 }
  
 function draw(reset) {
-    var tmpCanvas = canvas.get(0);
- 
-    if (tmpCanvas.getContext === null) {
-        return;
-    }
- 
-    ctx = tmpCanvas.getContext('2d');
-    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
- 
-    bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
- 
-    if (pointCollection) {
-        pointCollection.draw(bubbleShape, reset);
+    for (i in pointCollections) {
+        canvas = $("#" + canvas_names[i]);
+        pointCollection = pointCollections[i];
+        var tmpCanvas = canvas.get(0);
+     
+        if (tmpCanvas.getContext === null) {
+            return;
+        }
+     
+        ctx = tmpCanvas.getContext('2d');
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+     
+        bubbleShape = typeof bubbleShape !== 'undefined' ? bubbleShape : "circle";
+     
+        if (pointCollection) {
+            pointCollection.draw(bubbleShape, reset);
+        }
     }
 }
  
@@ -234,11 +243,18 @@ function shake() {
 }
  
 function update() {
-    if (pointCollection)
-        pointCollection.update();
+    // if (pointCollection)
+    //     pointCollection.update();
+    for (i in pointCollections) {
+        canvas = $("#" + canvas_names[i]);
+        pointCollection = pointCollections[i];
+        pointCollection.update()
+    }
 }
  
-function drawName(name, letterColors) {
+function drawName(canvas_name, name, letterColors) {
+    canvas_names.push(canvas_name)
+    canvas = $("#" + canvas_name);
     updateCanvasDimensions();
     var g = [];
     var offset = 0;
@@ -290,9 +306,11 @@ function drawName(name, letterColors) {
         g[j].originalPos.x = (canvasWidth / 2 - offset / 2) + g[j].originalPos.x;
         g[j].originalPos.y = (canvasHeight / 2 - 105) + g[j].originalPos.y;
     }
- 
+    
     pointCollection = new PointCollection();
     pointCollection.points = g;
+    
+    pointCollections.push(pointCollection);
     initEventListeners();
 }
  
@@ -313,6 +331,9 @@ var ctx;
 var pointCollection;
 
 // Battushig added
+var canvas_names = [];
+var pointCollections = [];
+
 var mouse_radius = 50;
  
 document.rotationForce = 0.01;

@@ -8,8 +8,8 @@ var myName = "Eny";
 var bubbleShape = "circle"; // or circle
 var letterColors = [red, green, purple];
 
-drawName(myName, letterColors);
-
+drawName('myCanvas', myName, letterColors);
+drawName('myCanvas1', 'Happy', letterColors);
 bounceBubbles();
 
 
