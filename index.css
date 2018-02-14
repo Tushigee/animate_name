@@ -26,12 +26,15 @@
     width: 100vw;
     height: 40px;
     bottom: 0;
+    background-color: #f27987;
+    opacity: 0.6;
 }
 
 #button1 {
     width: 100vw;
     height: 40px;
-    background-color: blue;
+    background-color: #f27987;
+    /*opacity: 0.9;*/
 }
 
 
