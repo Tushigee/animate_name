@@ -349,6 +349,7 @@ var pointCollection;
 // Battushig added
 var canvas_names = [];
 var pointCollections = [];
+var scales = []
 
 var mouse_radius = 50;
  
