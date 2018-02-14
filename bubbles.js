@@ -192,9 +192,13 @@ function onMove(e) {
 function onTouchMove(e) {
     e.preventDefault();
     var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-    
-    if (pointCollection) {
-        pointCollection.mousePos.set(touch.pageX - canvas.offset().left, touch.pageY - canvas.offset().top);
+    for (i in pointCollections) {
+        canvas = $("#" + canvas_names[i]);
+        pointCollection = pointCollections[i];
+
+        if (pointCollection) {
+            pointCollection.mousePos.set(touch.pageX - canvas.offset().left, touch.pageY - canvas.offset().top);
+        }
     }
     console.log('Touch move detected');
     alert('Touch detected!')
