@@ -142,7 +142,7 @@ function phraseToHex(phrase) {
 }
  
 function initEventListeners() {
-    $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove).bind('touchmove', canvas.ontouchmove);
+    $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove).bind('touchmove', onTouchMove);
  
     canvas.ontouchmove = function (e) {
         e.preventDefault();
