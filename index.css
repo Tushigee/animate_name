@@ -17,10 +17,10 @@
 }
 
 #mybutton {
-	position: absolute;
+	position: fixed;
     width: 100vw;
-    height: 5vh;
-    bottom: 5vh;
+    height: 4vh;
+    bottom: 0;
 }
 
 .heart{
