@@ -19,8 +19,9 @@
 #mybutton {
 	position: fixed;
     width: 100vw;
-    height: 4vh;
+    height: 10px;
     bottom: 0;
+    z-index:99;
 }
 
 .heart{
