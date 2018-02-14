@@ -10,7 +10,12 @@ var letterColors = [red, green, purple];
 
 drawName('myCanvas', myName, letterColors);
 drawName('myCanvas1', 'Happy', letterColors);
-drawName('myCanvas2', 'Valentines!', letterColors);
+if (mobileCheck()) {
+	drawName('myCanvas2', 'V-Day!', letterColors);	
+} else {
+	drawName('myCanvas2', 'Valentines!', letterColors);	
+}
+
 bounceBubbles();
 
 
