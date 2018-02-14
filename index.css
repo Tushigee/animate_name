@@ -16,13 +16,19 @@
     /*background-color: blue;*/
 }
 
-#mybutton {
+#button {
 	position: fixed;
     width: 100vw;
-    height: 10px;
+    height: 40px;
     bottom: 0;
-    z-index:99;
 }
+
+#button1 {
+    width: 100vw;
+    height: 40px;
+    background-color: blue;
+}
+
 
 .heart{
     position: absolute;
