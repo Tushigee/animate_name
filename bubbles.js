@@ -142,7 +142,11 @@ function phraseToHex(phrase) {
 }
  
 function initEventListeners() {
-    $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove).bind('touchmove', onTouchMove);
+    $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
+    window.addEventListener( 'touchmove', function() {
+        window.preventDefault();
+        onTouchMove(canvas);
+    })
  
     canvas.ontouchmove = function (e) {
         e.preventDefault();
@@ -177,7 +181,6 @@ function onMove(e) {
  
 function onTouchMove(e) {
     e.preventDefault();
-    e = canvas;
     if (pointCollection) {
         pointCollection.mousePos.set(e.targetTouches[0].pageX - canvas.offset().left, e.targetTouches[0].pageY - canvas.offset().top);
     }
