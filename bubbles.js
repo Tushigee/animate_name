@@ -156,24 +156,31 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: 500,
-        width: 1000
+        height: $( window ).height(),
+        width: $( window ).width()
     });
-    canvasWidth = canvas.width();
-    canvasHeight = canvas.height();
-    draw();
+    // canvasWidth = canvas.width();
+    // canvasHeight = canvas.height();
+    canvasWidth = $( window ).width();
+    canvasHeight = $( window ).height();
+
+    draw(true);
+    console.log('Dimension update');
 }
  
 function onMove(e) {
     if (pointCollection) {
         pointCollection.mousePos.set(e.pageX - canvas.offset().left, e.pageY - canvas.offset().top);
     }
+    console.log('Mouse is moving');
 }
  
 function onTouchMove(e) {
     if (pointCollection) {
         pointCollection.mousePos.set(e.targetTouches[0].pageX - canvas.offset().left, e.targetTouches[0].pageY - canvas.offset().top);
     }
+    console.log('Touch move detected');
+    alert('Touch detected!')
 }
  
 function bounceName() {
@@ -295,8 +302,8 @@ $(window).mouseenter(function () {
 });
  
 var canvas = $("#myCanvas");
-var canvasHeight;
-var canvasWidth;
+var canvasHeight = $( window ).height();
+var canvasWidth = $( window ).width();
 var ctx;
 var pointCollection;
 
