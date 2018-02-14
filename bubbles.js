@@ -329,6 +329,7 @@ function drawName(canvas_name, name, letterColors) {
     pointCollections.push(pointCollection);
     initEventListeners();
 }
+
  
 window.reset = false;
  
@@ -339,7 +340,7 @@ $(window).mouseleave(function () {
 $(window).mouseenter(function () {
     window.reset = false;
 });
- 
+
 var canvas = $("#myCanvas");
 var canvasHeight = $( window ).height();
 var canvasWidth = $( window ).width();

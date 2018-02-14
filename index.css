@@ -16,6 +16,11 @@
     /*background-color: blue;*/
 }
 
+#body {
+	height: 100vh;
+	width: 100vw;
+}
+
 #button {
 	position: fixed;
     width: 100vw;
