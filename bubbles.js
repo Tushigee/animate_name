@@ -176,6 +176,7 @@ function onMove(e) {
 }
  
 function onTouchMove(e) {
+    e = canvas;
     if (pointCollection) {
         pointCollection.mousePos.set(e.targetTouches[0].pageX - canvas.offset().left, e.targetTouches[0].pageY - canvas.offset().top);
     }
