@@ -55,12 +55,12 @@ function PointCollection() {
             if (point === null)
                 continue;
  
-            if (window.reset) {
+            if (window.reset || reset) {
                 this.pointCollectionX = 0;
                 this.pointCollectionY = 0;
                 this.mousePos = new Vector(0, 0);
             }
- 
+            
             point.draw(bubbleShape, this.pointCollectionX, this.pointCollectionY, reset);
         }
     };
@@ -160,13 +160,13 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: $( window ).height(),
+        height: $( window ).height()/2,
         width: $( window ).width()
     });
     // canvasWidth = canvas.width();
     // canvasHeight = canvas.height();
     canvasWidth = $( window ).width();
-    canvasHeight = $( window ).height();
+    canvasHeight = $( window ).height()/2;
 
     draw(true);
     console.log('Dimension update');

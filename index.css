@@ -1,4 +1,11 @@
-/*#myCanvas {
-    height: 100%;
+#myCanvas {
+    height: 50%;
     width: 100%;
-}*/
+    background-color: red;
+}
+
+#myCanvas1 {
+    height: 50%;
+    width: 100%;
+    background-color: green;
+}
