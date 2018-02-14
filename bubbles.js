@@ -143,15 +143,13 @@ function phraseToHex(phrase) {
  
 function initEventListeners() {
     $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
-    window.addEventListener( 'touchmove', function() {
-        // window.preventDefault();
-        // onTouchMove(e);
-    })
- 
-    canvas.ontouchmove = function (e) {
-        e.preventDefault();
-        onTouchMove(e);
-    };
+    
+    canvas.addEventListener("touchmove", onTouchMove, true);
+
+    // canvas.ontouchmove = function (e) {
+    //     e.preventDefault();
+    //     onTouchMove(e);
+    // };
  
     canvas.ontouchstart = function (e) {
         e.preventDefault();
