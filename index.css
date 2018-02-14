@@ -1,11 +1,17 @@
 #myCanvas {
-    height: 50%;
+    height: 33%;
     width: 100%;
     background-color: red;
 }
 
 #myCanvas1 {
-    height: 50%;
+    height: 33%;
+    width: 100%;
+    background-color: green;
+}
+
+#myCanvas2 {
+    height: 33%;
     width: 100%;
     background-color: blue;
 }

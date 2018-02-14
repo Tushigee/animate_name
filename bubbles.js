@@ -165,13 +165,13 @@ function initEventListeners() {
  
 function updateCanvasDimensions() {
     canvas.attr({
-        height: $( window ).height()/2,
+        height: $( window ).height()/3,
         width: $( window ).width()
     });
     // canvasWidth = canvas.width();
     // canvasHeight = canvas.height();
     canvasWidth = $( window ).width();
-    canvasHeight = $( window ).height()/2;
+    canvasHeight = $( window ).height()/3;
 
     draw(false);
     console.log('Dimension update');
@@ -201,7 +201,6 @@ function onTouchMove(e) {
         }
     }
     console.log('Touch move detected');
-    alert('Touch detected!')
 }
  
 function bounceName() {
@@ -212,7 +211,7 @@ function bounceName() {
 function bounceBubbles() {
     draw();
     update();
-    setTimeout(bounceBubbles, 100);
+    setTimeout(bounceBubbles, 30);
 }
  
 function draw(reset) {
